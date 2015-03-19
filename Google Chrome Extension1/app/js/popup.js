@@ -58,10 +58,13 @@ $(document).ready(function () {
             data: srcData,
             url: 'http://localhost:5555/api/Source',
             success: function (data) {
-                window.close();
+                document.body.innerHTML += "<b><center>Saved</b></center>";
+                setTimeout(function () {
+                    window.close();
+                }, 2000);
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                window.close();
+                document.body.innerHTML += "<b><center>Sorry...NOT saved</b></center>";
             }
         });
         
