@@ -17,7 +17,7 @@ $(document).ready(function () {
     });
     
     
-    $('#save').on("click", function () {
+    $('#save').click( function () {
 
         var url = $("#page_url").val();
         var note = $("#page_summary").val();
