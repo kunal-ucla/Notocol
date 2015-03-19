@@ -58,12 +58,13 @@ $(document).ready(function () {
             data: srcData,
             url: 'http://localhost:5555/api/Source',
             success: function (data) {
-                alert(data);
+                window.close();
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert(errorThrown);
+                window.close();
             }
         });
+        
     });
 
 });
