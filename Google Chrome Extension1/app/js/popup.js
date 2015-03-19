@@ -10,9 +10,13 @@ $(document).ready(function () {
             $("#myTags").removeClass("blur");
         });
     });
-
-    $("#page_title").val(document.title);
-    $("#page_url").val(window.location.href);
+    var url;
+    chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
+        $("#page_url").val(tabs[0].url);
+        $("#page_title").val(tabs[0].title);
+    });
+    
+    
     $('#save').on("click", function () {
 
         var url = $("#page_url").val();
