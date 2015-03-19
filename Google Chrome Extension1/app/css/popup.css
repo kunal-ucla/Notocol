@@ -1,0 +1,35 @@
+﻿body {
+    width:auto !important;
+    height:auto !important;
+}
+#save {
+    padding: 5px !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    background-color: #009afd !important;
+    margin-bottom: 10px !important;
+    margin-top: 10px !important;
+}
+
+input.chimp_ext_text_input {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 5px !important;
+}
+#chimp_ext_container {
+    font-family: Arial, sans-serif !important;
+    font-size: 12px !important;
+    margin:1px !important;
+    padding:10px !important;
+    border: 1px groove !important;
+    border-radius: 5px !important;
+    background-color:aqua !important;
+}
+ul.tagit {
+    width: 171px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 0px !important;
+}
