@@ -2,6 +2,7 @@ $(document).ready(function () {
     $("#myTags").tagit({ allowSpaces: true });
     $(".ui-autocomplete-input").attr("placeholder", "Enter tags");
     $(function () {
+        $("#myTags").removeClass("ui-corner-all");
         $(".ui-autocomplete-input").focus(function () {
             $("#myTags").addClass("blur");
         });
