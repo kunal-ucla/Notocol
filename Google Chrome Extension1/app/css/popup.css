@@ -8,7 +8,9 @@
     z-index: -1;
     height: 100%;
     width: 100%;
-    background-image: url("http://fc07.deviantart.net/fs70/i/2012/179/5/0/chrome_wallpaper_by_tandyman100-d55699d.png");
+    background: linear-gradient(0deg, lightblue,yellow,lightgreen,cyan,violet); 
+    /*background-color: gainsboro;*/
+    /*background-image: url("http://fc07.deviantart.net/fs70/i/2012/179/5/0/chrome_wallpaper_by_tandyman100-d55699d.png");*/
     background-repeat: round;
     -webkit-filter: blur(20px);
     -moz-filter: blur(15px);
