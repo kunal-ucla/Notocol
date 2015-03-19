@@ -1,10 +1,18 @@
 $(document).ready(function () {
     $("#myTags").tagit({ allowSpaces: true });
     $(".ui-autocomplete-input").attr("placeholder", "Enter tags");
+    $(function () {
+        $(".ui-autocomplete-input").focus(function () {
+            $("#myTags").addClass("blur");
+        });
+        $(".ui-autocomplete-input").focusout(function () {
+            $("#myTags").removeClass("blur");
+        });
+    });
+
     $("#page_title").val(document.title);
     $("#page_url").val(window.location.href);
     $('#save').on("click", function () {
-
 
         var url = $("#page_url").val();
         var note = $("#page_summary").val();
@@ -52,4 +60,5 @@ $(document).ready(function () {
             }
         });
     });
+
 });

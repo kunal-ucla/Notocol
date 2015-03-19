@@ -10,6 +10,7 @@
     background-color: #009afd !important;
     margin-bottom: 10px !important;
     margin-top: 10px !important;
+    border:0;
 }
 
 input.chimp_ext_text_input {
@@ -17,19 +18,30 @@ input.chimp_ext_text_input {
     margin-left: auto !important;
     margin-right: auto !important;
     padding: 5px !important;
+    border: 1px solid grey;
+    border-radius:2px;
 }
 #chimp_ext_container {
     font-family: Arial, sans-serif !important;
     font-size: 12px !important;
-    margin:1px !important;
-    padding:10px !important;
-    border: 1px groove !important;
-    border-radius: 5px !important;
-    background-color:aqua !important;
+    border: 0 !important;
 }
 ul.tagit {
-    width: 171px !important;
+    width: 169px !important;
     margin-left: auto !important;
     margin-right: auto !important;
     margin-top: 0px !important;
+}
+.ui-widget-content {
+    border: 1px solid grey;
+}
+.chimp_ext_text_input:focus{
+    outline:none !important;
+    border-color: #9ecaed !important;
+    box-shadow: 0 0 10px #9ecaed !important;
+}
+.blur{
+    outline:none !important;
+    border-color: #9ecaed !important;
+    box-shadow: 0 0 10px #9ecaed !important;
 }
