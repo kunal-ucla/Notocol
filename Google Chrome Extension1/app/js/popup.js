@@ -1,5 +1,29 @@
 $(document).ready(function () {
-    $("#myTags").tagit({ allowSpaces: true });
+    $("#myTags").tagit({
+        allowSpaces: true,
+        autocomplete: {
+            source: function (request, response) {
+                $.ajax({
+                    url: "http://localhost:5555/api/Tag",
+                    dataType: "json",
+                    data: {
+                      strSearch: request.term
+                    },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return {
+                                label: item.Name, //Use rest of the data to map IDs
+                                value: item.Name
+                            }
+                        }));
+                    }
+                });
+            },
+            minLength: 1
+        }
+
+    });
+
     $(".ui-autocomplete-input").attr("placeholder", "Enter tags");
     $(function () {
         $("#myTags").removeClass("ui-corner-all");
@@ -15,8 +39,8 @@ $(document).ready(function () {
         $("#page_url").val(tabs[0].url);
         $("#page_title").val(tabs[0].title);
     });
-    
-    
+
+
     $('#save').click( function () {
 
         var url = $("#page_url").val();
@@ -54,20 +78,16 @@ $(document).ready(function () {
         // Script to add Source to database.
         $.ajax({
             type: "POST",
-            dataType: "application/json",
+            //dataType: "application/json", //TODO Commenting since extension throws error on this
             data: srcData,
-            url: 'http://localhost:5555/api/Source',
-            success: function (data) {
-                document.body.innerHTML += "<b><center>Saved</b></center>";
-                setTimeout(function () {
-                    window.close();
-                }, 2000);
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                document.body.innerHTML += "<b><center>Sorry...NOT saved</b></center>";
-            }
+            url: 'http://localhost:5555/api/Source'
+        }).success(function (data) {
+            document.body.innerHTML += "<b><center>Saved</b></center>";
+            setTimeout(function () {
+                window.close();
+            }, 2000);
+        }).error(function(XMLHttpRequest, textStatus, errorThrown) {
+            document.body.innerHTML += "<b><center>Sorry...NOT saved</b></center>";
         });
-        
     });
-
 });
