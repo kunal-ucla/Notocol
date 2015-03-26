@@ -13,13 +13,18 @@ $(document).ready(function () {
                         response($.map(data, function (item) {
                             return {
                                 label: item.Name, //Use rest of the data to map IDs
-                                value: item.Name
+                                value: item.Name,
+                                ID: item.ID
                             }
                         }));
                     }
                 });
             },
-            minLength: 1
+            minLength: 1,
+            select: function (event, ui) {
+                console.log(ui.item.label + "=" + ui.item.ID);
+            }
+
         }
 
     });
