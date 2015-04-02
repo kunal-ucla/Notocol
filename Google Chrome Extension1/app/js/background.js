@@ -6,7 +6,7 @@
         chrome.tabs.insertCSS(null, { file: "css/annotator.min.css" });
     });
 
-    chrome.tabs.executeScript(null, { file: "js/jquery.min.js" }, function () {
+    chrome.tabs.executeScript(null, { file: "js/jquery-2.1.3.min.js" }, function () {
         chrome.tabs.executeScript(null, { file: "js/jquery-ui.min.js" }, function () {
             chrome.tabs.executeScript(null, { file: "js/annotator-full.min.js" }, function () {
                 chrome.tabs.executeScript(null, { file: "js/annotate.js" });

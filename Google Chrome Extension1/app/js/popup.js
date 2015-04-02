@@ -1,4 +1,18 @@
 $(document).ready(function () {
+    var url;
+    chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
+        $("#page_url").val(tabs[0].url);
+        $("#page_title").val(tabs[0].title);
+    });
+
+    /* Get the pre-existing source details for following:
+      1) Assigned user tags
+      2) Note/Description by user
+      3) Tags
+      4) Annotations
+    */
+
+
     $("#myTags").tagit({
         allowSpaces: true,
         autocomplete: {
@@ -39,11 +53,7 @@ $(document).ready(function () {
             $("#myTags").removeClass("blur");
         });
     });
-    var url;
-    chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
-        $("#page_url").val(tabs[0].url);
-        $("#page_title").val(tabs[0].title);
-    });
+    
 
 
     $('#save').click( function () {
