@@ -40,7 +40,7 @@
     box-shadow: 0 0 10px #9ecaed;
 }
 
-input.chimp_ext_text_input {
+.chimp_ext_text_input {
     display: block !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -78,6 +78,25 @@ ul.tagit {
     border-color: #9ecaed !important;
     box-shadow: 0 0 10px #9ecaed !important;
 }
+
 ul.tagit input[type="text"] {
     padding: 5.5px !important;
+}
+
+#myAnns {
+    background-color: white;
+    padding: 0 !important;
+    float: left;
+    width: 195px;
+}
+
+.myAnnList {
+    border: 1px solid #dddddd;
+    background: #f6f6f6 url(images/ui-bg_highlight-soft_100_f6f6f6_1x100.png) 50% 50% repeat-x;
+    font-weight: bold;
+    color: #0073ea;
+    padding: 5px;
+    border-radius: 2px;
+    float: left;
+    margin: 5px;
 }

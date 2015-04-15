@@ -1,5 +1,6 @@
 $(document).ready(function () {
     var url;
+    var sourceID = 0;
     chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
         $("#page_url").val(tabs[0].url);
         $("#page_title").val(tabs[0].title);
@@ -12,9 +13,16 @@ $(document).ready(function () {
       4) Annotations
     */
 
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, { greeting: "dom" }, function (response) {
+            console.log(response);
+        });
+    });
+
 
     $("#myTags").tagit({
         allowSpaces: true,
+        showAutocompleteOnFocus: true,
         autocomplete: {
             source: function (request, response) {
                 $.ajax({
@@ -41,6 +49,25 @@ $(document).ready(function () {
 
         }
 
+    });
+
+    chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
+        $.ajax({
+            method:"GET",
+            url: "http://localhost:5555/api/SourceDataForExtension",
+            dataType: "json",
+            data:
+            {
+                pageURL:tabs[0].url,
+                userID: 2
+            },
+            success: function (data)
+            {
+                sourceID = data.Source.id;
+                for (var i = 0; i < data.Tags.length; i++) $("#myTags").tagit('createTag', data.Tags[i].tagName);
+                for (var i = 0; i < data.Annotations.length; i++) document.getElementById("myAnns").innerHTML+="<div class='myAnnList'>"+data.Annotations[i].quote+"</div>";
+            }
+        });
     });
 
     $(".ui-autocomplete-input").attr("placeholder", "Enter tags");
@@ -76,7 +103,7 @@ $(document).ready(function () {
 
         var srcData = {
             "Source": {
-                "ID": 0,
+                "ID": sourceID,
                 "UserID": 2,
                 "Title": title,
                 "Link": url,
@@ -101,7 +128,7 @@ $(document).ready(function () {
             document.body.innerHTML += "<b><center>Saved</b></center>";
             setTimeout(function () {
                 window.close();
-            }, 2000);
+            }, 500);
         }).error(function(XMLHttpRequest, textStatus, errorThrown) {
             document.body.innerHTML += "<b><center>Sorry...NOT saved</b></center>";
         });
