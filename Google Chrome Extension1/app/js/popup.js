@@ -114,7 +114,8 @@ $(document).ready(function () {
                 "Rating": 0,
                 "ModifiedAt": Date()
             },
-            "Tags": tagData
+            "Tags": tagData,
+            "Annotations":[]
         }
 
         // Script to add Source to database.
