@@ -1,4 +1,5 @@
-﻿function clickHandler() {
+﻿
+function clickHandler() {
    // alert("Will add here the annotate function");
     console.log("Adding annotator to body");
 
