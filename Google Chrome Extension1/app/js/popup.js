@@ -67,7 +67,7 @@ $(document).ready(function () {
 
         for (var i = 0; i < $(".tagit-label").length; i++) {
             tagData[i] = {
-                "ID": i,
+                "ID": 0,
                 "Name": $(".tagit-label")[i].innerHTML,
                 "ParentID": "1",
                 "UserID": "2"
@@ -87,7 +87,8 @@ $(document).ready(function () {
                 "Rating": 0,
                 "ModifiedAt": Date()
             },
-            "Tags": tagData
+            "Tags": tagData,
+            "Annotations":[]
         }
 
         // Script to add Source to database.
