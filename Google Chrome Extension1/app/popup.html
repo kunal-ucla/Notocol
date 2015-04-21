@@ -10,19 +10,27 @@
     <script src="js/popup.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
-    <div class="blurred_bg"></div>
-    <div id="chimp_ext_container">
-
-        <div class="chimp_ext_content">
-            <input type="text" class="chimp_ext_text_input" id="page_title" />
-            <input type="text" class="chimp_ext_text_input" id="page_url" />
-            <input type="text" class="chimp_ext_text_input" id="page_note" placeholder="Enter Notes" />
+    
+    <div id="container">
+        <div id="header"> </div>
+        <div id="body">
+            <input type="text" id="pageTitle" readonly="readonly"></input>
+            <textarea rows="4" cols="63" id="page_note" placeholder="Notes/Summary"></textarea>
+            <!--<input type="text" class="chimp_ext_text_input" id="page_note" placeholder="Add Notes/Summary" />-->
             <ul id="myTags"></ul>   <!--tag-it input-->
-            <div class="chimp_ext_text_input" id="myAnns" /></div>   <!--annotations -->
+            <div class="chimp_ext_text_input" id="annotation-list">
+                <p id="annotation-title"></p>
+               
+                 
+            </div>
             <input type="button" class="chimp_ext_button" value="Save" id="save" />
+            
         </div>
-
-    </div>
+        <div id="footer"> </div>
+        
+            
+        
+     </div>   
 </body>
 </html>
 
