@@ -43,7 +43,7 @@ $(document).ready(function () {
 
                 return htmlString;
             }
-           function getPopUpdata(data) {
+           function getPopUpData(data) {
                console.log(data);
                if (data && data.Source) {
 
@@ -92,13 +92,13 @@ $(document).ready(function () {
                    }
                    if (data.Annotations) {
 
-                       var annotationdataHtmlString = "<div class='annotation-container'>"
+                       var annotationDataHtmlString = "<div class='annotation-container'>"
                        for (var i = 0; i < data.Annotations.length; i++) {
-                           annotationdataHtmlString += getAnnotationElementHtml(data.Annotations[i]);
+                           annotationDataHtmlString += getAnnotationElementHtml(data.Annotations[i]);
                        }
-                       annotationdataHtmlString += "</div>";
+                       annotationDataHtmlString += "</div>";
 
-                       document.getElementById("annotation-list").innerHTML += annotationdataHtmlString
+                       document.getElementById("annotation-list").innerHTML += annotationDataHtmlString
 
                        $('.annotation').click(function () {
                            // alert("Click check!");
