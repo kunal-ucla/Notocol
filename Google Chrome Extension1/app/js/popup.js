@@ -44,7 +44,7 @@ $(document).ready(function () {
                 return htmlString;
             }
            function getPopUpData(data) {
-               console.log("In get popup with data" + data);
+               console.log(data);
                 if (data && data.Source) {
             
                     sourceID = data.Source.id;
@@ -52,7 +52,21 @@ $(document).ready(function () {
                     if(data.Source.summary) $('#page_note').val(data.Source.summary);
                     if (data.Tags) {
                         for (var i = 0; i < data.Tags.length; i++) {
+                            $("#myTags").tagit({
+                                afterTagAdded: function (event, ui) {
+                                    var obj = document.getElementsByClassName("tagit-label");
+                                    var ind = obj.length - 1;
+                                    obj[ind].className += ' ' + 'old';
+                                }
+                            });
                             $("#myTags").tagit('createTag', data.Tags[i].tagName);
+                            $("#myTags").tagit({
+                                afterTagAdded: function (event, ui) {
+                                    var obj = document.getElementsByClassName("tagit-label");
+                                    var ind = obj.length - 1;
+                                    obj[ind].className += ' ' + 'new';
+                                }
+                            });
                         }
                     }
                     if (data.Annotations) {
@@ -95,7 +109,9 @@ $(document).ready(function () {
 
             $("#myTags").tagit({
                 allowSpaces: true,
+                placeholderText:"Add Tags",
                 showAutocompleteOnFocus: true,
+                singleField:true,
                 autocomplete: {
                     source: function (request, response) {
                         $.ajax({
@@ -123,7 +139,7 @@ $(document).ready(function () {
                 }
             });
 
-            $(".ui-autocomplete-input").attr("placeholder", "Add tags");
+            //$(".ui-autocomplete-input").attr("placeholder", "Add tags");
             $(function () {
                 $("#myTags").removeClass("ui-corner-all");
                 $(".ui-autocomplete-input").focus(function () {
@@ -144,10 +160,10 @@ $(document).ready(function () {
         
                 var tagData = [];
 
-                for (var i = 0; i < $(".tagit-label").length; i++) {
+                for (var i = 0; i < $(".tagit-label.new").length; i++) {
                     tagData[i] = {
                         "ID": 0,
-                        "Name": $(".tagit-label")[i].innerHTML,
+                        "Name": $(".tagit-label.new")[i].innerHTML,
                         "ParentID": "1",
                         "UserID": ""
                     };
