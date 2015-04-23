@@ -206,10 +206,12 @@ $(document).ready(function () {
                 var title = pageTitle;
         
                 var tagData = [];
-
+                
                 for (var i = 0; i < $(".tagit-label").length; i++) {
+                    var finId = parseInt($(".tagit-label")[i].className.replace("tagit-label ", ""));
+                    if (isNaN(finId) == true) finId = 0;
                     tagData[i] = {
-                        "ID": parseInt($(".tagit-label")[i].className.replace("tagit-label ","")),
+                        "ID": finId,
                         "Name": $(".tagit-label")[i].innerHTML,
                         "ParentID": "1",
                         "UserID": ""
