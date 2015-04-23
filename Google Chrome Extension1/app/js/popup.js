@@ -43,51 +43,72 @@ $(document).ready(function () {
 
                 return htmlString;
             }
-           function getPopUpData(data) {
+           function getPopUpdata(data) {
                console.log(data);
-                if (data && data.Source) {
-            
-                    sourceID = data.Source.id;
-                    //alert(data.Source.summary);
-                    if(data.Source.summary) $('#page_note').val(data.Source.summary);
-                    if (data.Tags) {
-                        for (var i = 0; i < data.Tags.length; i++) {
-                            $("#myTags").tagit({
-                                afterTagAdded: function (event, ui) {
-                                    var obj = document.getElementsByClassName("tagit-label");
-                                    var ind = obj.length - 1;
-                                    obj[ind].className += ' ' + 'old';
-                                }
-                            });
-                            $("#myTags").tagit('createTag', data.Tags[i].tagName);
-                            $("#myTags").tagit({
-                                afterTagAdded: function (event, ui) {
-                                    var obj = document.getElementsByClassName("tagit-label");
-                                    var ind = obj.length - 1;
-                                    obj[ind].className += ' ' + 'new';
-                                }
-                            });
-                        }
-                    }
-                    if (data.Annotations) {
-                
-                        var annotationDataHtmlString = "<div class='annotation-container'>"
-                        for (var i = 0; i < data.Annotations.length; i++) {
-                            annotationDataHtmlString += getAnnotationElementHtml(data.Annotations[i]);
-                        }
-                        annotationDataHtmlString += "</div>";
+               if (data && data.Source) {
 
-                        document.getElementById("annotation-list").innerHTML += annotationDataHtmlString
+                   sourceID = data.Source.id;
+                   //alert(data.Source.summary);
+                   if (data.Source.summary) $('#page_note').val(data.Source.summary);
+                   if (data.Tags) {
+                       for (var i = 0; i < data.Tags.length; i++) {
+                           $("#myTags").tagit({
+                               afterTagAdded: function (event, ui) {
+                                   var obj = document.getElementsByClassName("tagit-label");
+                                   var ind = obj.length - 1;
+                                   obj[ind].className += data.Tags[i].id;
+                               }
+                           });
+                           $("#myTags").tagit('createTag', data.Tags[i].tagName);
+                           $("#myTags").tagit({
+                               afterTagAdded: function (event, ui) {
+                                   var obj = document.getElementsByClassName("tagit-label");
+                                   var ind = obj.length - 1;
+                                   //obj[ind].className += ' ' + 'new';
+                                   $.ajax({
+                                       url: "http://localhost:5555/api/Tag",
+                                       dataType: "json",
+                                       data: {
+                                           strSearch: ui.tagLabel
+                                       },
+                                       headers: { "X-Notocol-Token": tokenValue },
+                                       success: function (data2) {
+                                           $.map(data2, function (item) {
+                                               obj[ind].className += item.ID;
+                                               /*return {
+                                                   label: item.Name, //Use rest of the data to map IDs
+                                                   value: item.Name,
+                                                   ID: item.ID
+                                               }*/
+                                           });
+                                       },
+                                       error: function (xhr, textStatus, errorThrown) {
+                                           obj[ind].className += 0;
+                                       }
+                                   });
+                               }
+                           });
+                       }
+                   }
+                   if (data.Annotations) {
 
-                        $('.annotation').click(function () {
+                       var annotationdataHtmlString = "<div class='annotation-container'>"
+                       for (var i = 0; i < data.Annotations.length; i++) {
+                           annotationdataHtmlString += getAnnotationElementHtml(data.Annotations[i]);
+                       }
+                       annotationdataHtmlString += "</div>";
+
+                       document.getElementById("annotation-list").innerHTML += annotationdataHtmlString
+
+                       $('.annotation').click(function () {
                            // alert("Click check!");
-                            var range = ($(this).children('.range-value').text());
-                           chrome.tabs.sendMessage(tabID, { action: "scrollToRange", range:range}, function (response) { });
-                        });
+                           var range = ($(this).children('.range-value').text());
+                           chrome.tabs.sendMessage(tabID, { action: "scrollToRange", range: range }, function (response) { });
+                       });
 
-                    }
-                }
-            }
+                   }
+               }
+           }
            console.log("pageURL:" + pageUrl + " pageTitle:" + pageTitle + "  tabID:" + tabID + "tokenvalue: " + tokenValue);
             //chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
             $.ajax({
@@ -108,6 +129,32 @@ $(document).ready(function () {
      
 
             $("#myTags").tagit({
+                afterTagAdded: function (event, ui) {
+                    var obj = document.getElementsByClassName("tagit-label");
+                    var ind = obj.length - 1;
+                    //obj[ind].className += ' ' + 'new';
+                    $.ajax({
+                        url: "http://localhost:5555/api/Tag",
+                        dataType: "json",
+                        data: {
+                            strSearch: ui.tagLabel
+                        },
+                        headers: { "X-Notocol-Token": tokenValue },
+                        success: function (data) {
+                            $.map(data, function (item) {
+                                obj[ind].className += item.ID;
+                                /*return {
+                                    label: item.Name, //Use rest of the data to map IDs
+                                    value: item.Name,
+                                    ID: item.ID
+                                }*/
+                            });
+                        },
+                        error: function (xhr, textStatus, errorThrown) {
+                            obj[ind].className += 0;
+                        }
+                    });
+                },
                 allowSpaces: true,
                 placeholderText:"Add Tags",
                 showAutocompleteOnFocus: true,
@@ -160,10 +207,10 @@ $(document).ready(function () {
         
                 var tagData = [];
 
-                for (var i = 0; i < $(".tagit-label.new").length; i++) {
+                for (var i = 0; i < $(".tagit-label").length; i++) {
                     tagData[i] = {
-                        "ID": 0,
-                        "Name": $(".tagit-label.new")[i].innerHTML,
+                        "ID": parseInt($(".tagit-label")[i].className.replace("tagit-label","")),
+                        "Name": $(".tagit-label")[i].innerHTML,
                         "ParentID": "1",
                         "UserID": ""
                     };
