@@ -8,9 +8,13 @@
     },
 
     "content_scripts": [{
-        "matches": ["<all_urls>"],
-        "js":      ["js/jquery-2.1.3.min.js", "js/content.js"]
-    }],
+            "matches": ["<all_urls>"],
+            "js":      ["js/jquery-2.1.3.min.js", "js/content.js"]
+        }],
+
+    "externally_connectable": {
+        "matches": [ "http://localhost:5555/?refresh=True", "http://localhost:5555/Home/*" ]
+    },
 
     "browser_action": {
         "default_icon": "img/borncoder.png",
@@ -26,8 +30,8 @@
         "cookies"
         //is there any security problem if we add "<all_urls>" ???
     ],
-    
 
+    
     "web_accessible_resources": [
         "*.html", "js/*.js", "css/*.css"
         ]

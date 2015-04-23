@@ -9,7 +9,13 @@
 
 function scrollToRange(range) {
     var str_array = range.substr(1).split('/');
-    var element = $('.annotator-wrapper');
+    var check_annotator = $("body").find(".annotator-wrapper");
+    if(check_annotator.length > 0)
+        element = check_annotator[0];
+    else
+        element = $('body');
+    
+    //var element = $('.annotator-wrapper');
     for (var i = 0; i < str_array.length; i++) {
         
         var elementDetalArray = str_array[i].split(/[\[\]]+/);
