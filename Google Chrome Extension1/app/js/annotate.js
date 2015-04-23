@@ -1,61 +1,12 @@
-﻿/*$(document).ready(function () {
-
-    var pageURL = window.location.href;
-    var content = $('body');
-    var userID = 2;
-    content.annotator();
-    content.annotator('addPlugin', 'Tags')
-    content.data('annotator').plugins.Tags.input.autocomplete({
-                source: function (request, response) {
-            $.ajax({
-                url: "http://localhost:5555/api/Tag",
-                dataType: "json",
-                data: {
-                    strSearch: request.term
-                },
-                success: function (data) {
-                    possibleSelectedTags = data;
-                    response($.map(data, function (item) {
-                        return {
-                            label: item.Name, //Use rest of the data to map IDs
-                            value: item.Name,
-                            ID: item.ID
-                        }
-                    }));
-                }
-            });
-        },
-                minLength: 1,
-                select: function (event, ui) {
-            console.log(ui.item.label + "=" + ui.item.ID);
-        }
-            })
-    content.annotator('addPlugin', 'Store', {
-                // The endpoint of the store on your server.
-                prefix: 'http://localhost:5555/api/Annotation',
-                annotationData: {
-                    'uri': pageURL,
-                    'userID': userID
-
-                },
-
-                loadFromSearch: {
-                    'count': 20,
-                    'uri': pageURL,
-                    'userID' : userID
-
-                }
-            });
-    console.log("Added annotator");
-});*/
-
-
-$(function () {
-
+﻿$(function () {
+    $.ajaxSetup({
+        
+    });
     //$(document.body).annotator();
     var pageURL = window.location.href;
+    var title = document.title;
     var content = $('body');
-    var userID = 2;
+    
     content.annotator();
     content.annotator('addPlugin', 'Tags')
     content.data('annotator').plugins.Tags.input.autocomplete({
@@ -63,6 +14,7 @@ $(function () {
             $.ajax({
                 url: "http://localhost:5555/api/Tag",
                 dataType: "json",
+                headers: { "X-Notocol-Token": tokenValue },
                 data: {
                     strSearch: request.term
                 },
@@ -88,14 +40,12 @@ $(function () {
         prefix: 'http://localhost:5555/api/Annotation',
         annotationData: {
             'uri': pageURL,
-            'user': userID
-
+            'title':title
         },
 
         loadFromSearch: {
-            'count': 20,
-            'uri': pageURL,
-            'user': userID
+            'uri': pageURL
+            
 
         }
     });
