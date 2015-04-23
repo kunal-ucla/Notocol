@@ -56,7 +56,7 @@ $(document).ready(function () {
                                afterTagAdded: function (event, ui) {
                                    var obj = document.getElementsByClassName("tagit-label");
                                    var ind = obj.length - 1;
-                                   obj[ind].className += data.Tags[i].id;
+                                   obj[ind].className += ' ' + data.Tags[i].id;
                                }
                            });
                            $("#myTags").tagit('createTag', data.Tags[i].tagName);
@@ -74,7 +74,7 @@ $(document).ready(function () {
                                        headers: { "X-Notocol-Token": tokenValue },
                                        success: function (data2) {
                                            $.map(data2, function (item) {
-                                               obj[ind].className += item.ID;
+                                               obj[ind].className += ' ' + item.ID;
                                                /*return {
                                                    label: item.Name, //Use rest of the data to map IDs
                                                    value: item.Name,
@@ -83,7 +83,7 @@ $(document).ready(function () {
                                            });
                                        },
                                        error: function (xhr, textStatus, errorThrown) {
-                                           obj[ind].className += 0;
+                                           obj[ind].className += ' ' + 0;
                                        }
                                    });
                                }
@@ -142,7 +142,7 @@ $(document).ready(function () {
                         headers: { "X-Notocol-Token": tokenValue },
                         success: function (data) {
                             $.map(data, function (item) {
-                                obj[ind].className += item.ID;
+                                obj[ind].className += ' ' + item.ID;
                                 /*return {
                                     label: item.Name, //Use rest of the data to map IDs
                                     value: item.Name,
@@ -151,7 +151,7 @@ $(document).ready(function () {
                             });
                         },
                         error: function (xhr, textStatus, errorThrown) {
-                            obj[ind].className += 0;
+                            obj[ind].className += ' ' + 0;
                         }
                     });
                 },
@@ -209,7 +209,7 @@ $(document).ready(function () {
 
                 for (var i = 0; i < $(".tagit-label").length; i++) {
                     tagData[i] = {
-                        "ID": parseInt($(".tagit-label")[i].className.replace("tagit-label","")),
+                        "ID": parseInt($(".tagit-label")[i].className.replace("tagit-label ","")),
                         "Name": $(".tagit-label")[i].innerHTML,
                         "ParentID": "1",
                         "UserID": ""
