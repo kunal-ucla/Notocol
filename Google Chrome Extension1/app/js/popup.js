@@ -28,7 +28,7 @@ $(document).ready(function () {
                 var htmlString = "";
                 var quote_string;
         
-                quote_string = "\"" + annotation.quote;
+                quote_string = annotation.quote;
         
 
                 if (quote_string.length > 60) {
@@ -37,7 +37,7 @@ $(document).ready(function () {
                 }
                 htmlString += "<button class='annotation'>" +
                                 "<span class='annotation-filler'></span>" +
-                                "<div class='annotation-text'>" + quote_string + "</div>" +
+                                "<div class='annotation-text'>\"" + quote_string + "\"</div>" +
                                 "<p hidden='hidden' class='range-value'>" + annotation.range.start + "</p>" +
                                "</button>"
 

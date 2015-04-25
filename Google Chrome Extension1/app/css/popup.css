@@ -1,51 +1,29 @@
 ﻿body {
    margin:0;
-   padding:0;
-   height:100%;
+   padding:5px;
+   min-height:300px;
    width:400px;
    border-radius: 20px;
 }
+
 #container {
-   min-height:100%;
+   /*min-height:100%;*/
    position:relative;
 }
-#header {
-   background:#808080;
-   padding:10px;
-   height:15%;
-   border-top-left-radius: 20px;
-   border-top-right-radius: 20px;
-}
-#body {
-   padding-top:20px;
-   padding-bottom:0px;   /* Height of the footer */
-}
-#footer {
-   position:absolute;
-   left: 0;
-   bottom:0;
-   width:100%;
-   height:7%;   /* Height of the footer */
-   background:#808080;
-   border-bottom-left-radius: 20px;
-   border-bottom-right-radius: 20px;
-}
 
-#page_note{
+/*#page_note{
     /*border-left:none;
     border-right:none;
     border-top:none;*/
-    margin-top:10px;
+    /*margin-top:10px;
     border-radius: 5px;
     margin-left: auto;
-    margin-right: auto;
-    width:90%;
-    width:inherit;
+    margin-right: auto;*/
+    /*width:90%;*/
+    /*width:inherit;
     font-size:1.2em;
     border-color:#f1f1f1;
-}
-
-
+}*/
 
 #pageTitle{
     width: 100%;
@@ -54,7 +32,10 @@
     font-size: 1.5em;
     word-wrap: break-word;
     text-overflow: ellipsis;
+    font-family: fantasy;
+    margin-bottom: 5px !important;
 }
+
 #save:hover {
     transition:0.2s ease-in;
     background-color: #0052CC;
@@ -62,32 +43,31 @@
 }
 
 .tagit-label{
-    color: #808080;
-    font-family: monospace;
-    font-size: 1.3em;
-}
-.ui-widget-content{
-    border:none;
+    line-height: 26px;
 }
 
 .annotation{
     background-color: #f1f1f1;
     border: none;
-    width:100%;
+    /*width:100%;*/
     text-align: left;
- 
-    height: 1.8em;
-    padding:2px;
-    margin-top: 2px;
+    height:41px !important;
+    /*height: 1.8em;*/
+    padding:10px;
+    /*margin-top: 2px;
     margin-top: 2px;
     margin-left: 5px;
-    margin-right:5px;
+    margin-right:5px;*/
     color: #808080;
     
 }
 
+.annotation:hover{
+    background-color:#16ECE4;
+}
+
 .annotation-text{
-    font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-family:Arial black;
     word-wrap: break-word;
     width:100%;
     
@@ -110,12 +90,10 @@
     border: 0;
     font-size: 18px;
     color: #FFFFFF;
-    padding: 5px;
     margin-top:20px !important;
     width: 195px;
     height: 41px;
-    margin-bottom:10px;
-    padding-bottom:10px;
+    line-height:41px;
 }
 /*
 .blurred_bg {
@@ -133,27 +111,7 @@
     -ms-filter: blur(15px);
     filter: blur(15px);
     opacity: 0.95;
-}
-
-#save {
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
-    border-radius: 0px;
-    background-color: tomato;
-    border: 0;
-    font-size: 18px;
-    color: #FFFFFF;
-    padding: 5px;
-    margin-top:20px !important;
-    width: 195px;
-    height: 41px;
-}
-#save:hover {
-    transition:0.2s ease-in;
-    background-color: #0052CC;
-    box-shadow: 0 0 10px #9ecaed;
-}
+}*/
 
 .chimp_ext_text_input {
     display: block !important;
@@ -163,17 +121,18 @@
     border-radius:0px !important;
     margin-bottom: 20px !important;
     padding:12px !important;
+    width:100%;
+    font-family: sans-serif;
 }
 
 #chimp_ext_container {
     font-family: Arial, sans-serif !important;
     font-size: 12px !important;
     border: 0 !important;
-   
 }
 
 ul.tagit {
-    width: 183px !important;
+    width: inherit;
     margin-left: auto !important;
     margin-right: auto !important;
     margin-top: 0px !important;
