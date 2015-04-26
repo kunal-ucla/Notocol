@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     $("#page_note").focusout(function () {
-        $("#page_note").css({"height":"103px","transition":"0.2s ease-in-out","transition-property":"height"});
+        $("#page_note").css({"height":"63px","transition":"0.2s ease-in-out","transition-property":"height"});
     });
     $("#myTags").focusin(function () {
         $("#myTags").removeClass("hclass");

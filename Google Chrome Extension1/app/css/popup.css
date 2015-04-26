@@ -44,7 +44,7 @@
 }
 
 #page_note:focus {
-    height:103px !important;
+    height:63px !important;
     transition:0.2s ease-in-out;
     background-color:transparent !important;
 }
@@ -74,16 +74,17 @@ ul.hclass:hover {
 
 .annotation{
     background-color: #f1f1f1;
-    border: none;
+    border: 1px solid #dddddd;;
     text-align: left;
-    height:41px !important;
-    padding:10px;
+    height:36px !important;
     color: #808080;
-    
+    margin:6px;
+    border-radius:2px;
+    line-height:36px;
 }
 
 .annotation:hover{
-    background-color:#16ECE4;
+    background-color:rgba(77,144,254,0.15);
 }
 
 .annotation-text{
