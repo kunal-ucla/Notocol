@@ -1,10 +1,13 @@
 $(document).ready(function () {
 
     $("#page_note").focusout(function () {
-        $("#page_note").css({"height":"103px","transition":"0.2s ease-in-out"});
+        $("#page_note").css({"height":"103px","transition":"0.2s ease-in-out","transition-property":"height"});
     });
     $("#myTags").focusin(function () {
-        $("#myTags").css("background-color", "transparent");
+        $("#myTags").removeClass("hclass");
+    });
+    $("#myTags").focusout(function () {
+        $("#myTags").addClass("hclass");
     });
 
     var tokenValue = "";

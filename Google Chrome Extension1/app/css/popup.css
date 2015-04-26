@@ -7,23 +7,8 @@
 }
 
 #container {
-   /*min-height:100%;*/
    position:relative;
 }
-
-/*#page_note{
-    /*border-left:none;
-    border-right:none;
-    border-top:none;*/
-    /*margin-top:10px;
-    border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;*/
-    /*width:90%;*/
-    /*width:inherit;
-    font-size:1.2em;
-    border-color:#f1f1f1;
-}*/
 
 #pageTitle{
     width: 100%;
@@ -36,28 +21,63 @@
     margin-bottom: 20px !important;
 }
 
-#save:hover {
-    transition:0.2s ease-in;
-    background-color: #0052CC;
-    box-shadow: 0 0 10px #9ecaed;
+.chimp_ext_text_input {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border: 1px solid transparent;
+    border-radius:0px !important;
+    margin-bottom: 20px !important;
+    padding:12px !important;
+    width:100%;
+    font-family: sans-serif;
+}
+
+.chimp_ext_text_input:hover {
+    background-color:rgba(77,144,254,0.15);
+}
+
+.chimp_ext_text_input:focus {
+    outline: none !important;
+    border-color: #9ecaed !important;
+    box-shadow: 0 0 10px #9ecaed !important;
+}
+
+#page_note:focus {
+    height:103px !important;
+    transition:0.2s ease-in-out;
+    background-color:transparent !important;
 }
 
 .tagit-label{
     line-height: 26px;
 }
 
+ul.tagit {
+    width: inherit;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 0px !important;
+}
+
+ul.tagit input[type="text"] {
+    padding: 5.5px !important;
+}
+
+.ui-widget-content {
+    border: 1px solid transparent;
+}
+
+ul.hclass:hover {
+    background-color:rgba(77,144,254,0.15);
+}
+
 .annotation{
     background-color: #f1f1f1;
     border: none;
-    /*width:100%;*/
     text-align: left;
     height:41px !important;
-    /*height: 1.8em;*/
     padding:10px;
-    /*margin-top: 2px;
-    margin-top: 2px;
-    margin-left: 5px;
-    margin-right:5px;*/
     color: #808080;
     
 }
@@ -95,71 +115,11 @@
     height: 41px;
     line-height:41px;
 }
-/*
-.blurred_bg {
-    position: fixed;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-    //background: linear-gradient(0deg, lightblue,yellow,lightgreen,cyan,violet);
-    //background-color: gainsboro;
-    //background-image: url("http://fc07.deviantart.net/fs70/i/2012/179/5/0/chrome_wallpaper_by_tandyman100-d55699d.png");
-    background-repeat: round;
-    -webkit-filter: blur(20px);
-    -moz-filter: blur(15px);
-    -o-filter: blur(15px);
-    -ms-filter: blur(15px);
-    filter: blur(15px);
-    opacity: 0.95;
-}*/
 
-.chimp_ext_text_input {
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    border: 1px solid transparent;
-    border-radius:0px !important;
-    margin-bottom: 20px !important;
-    padding:12px !important;
-    width:100%;
-    font-family: sans-serif;
-}
-
-.chimp_ext_text_input:hover {
-    background-color:rgba(77,144,254,0.15);
-}
-
-#page_note:focus {
-    height:103px !important;
-    transition:0.2s ease-in-out;
-    background-color:transparent !important;
-}
-
-#chimp_ext_container {
-    font-family: Arial, sans-serif !important;
-    font-size: 12px !important;
-    border: 0 !important;
-}
-
-ul.tagit {
-    width: inherit;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    margin-top: 0px !important;
-}
-
-.ui-widget-content {
-    border: 1px solid transparent;
-}
-
-.ui-widget-content:hover {
-    background-color:rgba(77,144,254,0.15);
-}
-
-.chimp_ext_text_input:focus {
-    outline: none !important;
-    border-color: #9ecaed !important;
-    box-shadow: 0 0 10px #9ecaed !important;
+#save:hover {
+    transition:0.2s ease-in;
+    background-color: #0052CC;
+    box-shadow: 0 0 10px #9ecaed;
 }
 
 .blur {
@@ -167,29 +127,3 @@ ul.tagit {
     border-color: #9ecaed !important;
     box-shadow: 0 0 10px #9ecaed !important;
 }
-
-ul.tagit input[type="text"] {
-    padding: 5.5px !important;
-}
-
-#myAnns {
-    background-color: white;
-    padding: 0 !important;
-    float: left;
-    width: 195px;
-}
-
-
-/*.myAnnList {
-    border: 1px solid #dddddd;
-    background-color: transparent;
-    padding:2px;
-}*/
-/*
-.annotation{
-    background-color: #f1f4f6;
-    border: 0px;
-    margin:1px;
-    padding: 1px;
-    text-align: left;
-}*/
