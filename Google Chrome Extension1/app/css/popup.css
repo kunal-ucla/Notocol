@@ -31,6 +31,7 @@
     padding:12px !important;
     width:100%;
     font-family: sans-serif;
+    background-color:transparent;
 }
 
 .chimp_ext_text_input:hover {
@@ -73,10 +74,10 @@ ul.hclass:hover {
 }
 
 .annotation{
-    background-color: #f1f1f1;
-    border: 1px solid #dddddd;;
+    background-color: transparent;
+    border: 1px solid #dddddd;
     text-align: left;
-    height:36px !important;
+    height:38px !important;
     color: #808080;
     margin:6px;
     border-radius:2px;
@@ -88,10 +89,11 @@ ul.hclass:hover {
 }
 
 .annotation-text{
-    font-family:Arial black;
+    font-family: inherit;
+    font-style: oblique;
+    font-weight: 800;
     word-wrap: break-word;
     width:100%;
-    
 }
 
 .annotation-container{
@@ -115,6 +117,7 @@ ul.hclass:hover {
     width: 195px;
     height: 41px;
     line-height:41px;
+    margin-bottom:20px;
 }
 
 #save:hover {
