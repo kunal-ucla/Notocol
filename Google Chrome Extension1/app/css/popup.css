@@ -33,7 +33,7 @@
     word-wrap: break-word;
     text-overflow: ellipsis;
     font-family: fantasy;
-    margin-bottom: 5px !important;
+    margin-bottom: 20px !important;
 }
 
 #save:hover {
@@ -117,12 +117,22 @@
     display: block !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    border: 1px solid grey;
+    border: 1px solid transparent;
     border-radius:0px !important;
     margin-bottom: 20px !important;
     padding:12px !important;
     width:100%;
     font-family: sans-serif;
+}
+
+.chimp_ext_text_input:hover {
+    background-color:rgba(77,144,254,0.15);
+}
+
+#page_note:focus {
+    height:103px !important;
+    transition:0.2s ease-in-out;
+    background-color:transparent !important;
 }
 
 #chimp_ext_container {
@@ -139,7 +149,11 @@ ul.tagit {
 }
 
 .ui-widget-content {
-    border: 1px solid grey;
+    border: 1px solid transparent;
+}
+
+.ui-widget-content:hover {
+    background-color:rgba(77,144,254,0.15);
 }
 
 .chimp_ext_text_input:focus {

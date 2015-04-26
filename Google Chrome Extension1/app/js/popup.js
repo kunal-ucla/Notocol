@@ -1,5 +1,13 @@
 $(document).ready(function () {
-    var tokenValue="";
+
+    $("#page_note").focusout(function () {
+        $("#page_note").css({"height":"103px","transition":"0.2s ease-in-out"});
+    });
+    $("#myTags").focusin(function () {
+        $("#myTags").css("background-color", "transparent");
+    });
+
+    var tokenValue = "";
     var port = chrome.extension.connect({ name: "Sample Communication" });
     port.postMessage("checkToken");
     port.onMessage.addListener(function (msg) {
