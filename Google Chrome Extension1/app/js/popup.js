@@ -1,7 +1,11 @@
 $(document).ready(function () {
 
+    $("#page_note").focusin(function () {
+        $("#page_note").animate({ "min-height": "63px" }, "slow");
+        $("#page_note").removeClass("hclass");
+    });
     $("#page_note").focusout(function () {
-        $("#page_note").css({"height":"63px","transition":"0.2s ease-in-out","transition-property":"height"});
+        $("#page_note").addClass("hclass");
     });
     $("#myTags").focusin(function () {
         $("#myTags").removeClass("hclass");
