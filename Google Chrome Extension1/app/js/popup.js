@@ -170,6 +170,7 @@ $(document).ready(function () {
                         }
                     });
                 },
+                //removeConfirmation: true,
                 allowSpaces: true,
                 placeholderText:"Add Tags",
                 showAutocompleteOnFocus: true,
