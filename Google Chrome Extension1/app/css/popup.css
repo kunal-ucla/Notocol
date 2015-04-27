@@ -1,9 +1,10 @@
 ﻿body {
    margin:0;
    padding:5px;
-   min-height:300px;
+   min-height:250px;
    width:400px;
    border-radius: 20px;
+   margin-bottom:41px;
 }
 
 #container {
@@ -108,19 +109,23 @@ ul.tagit input[type="text"] {
 }
 
 #save {
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
+    display: block;
+    /*margin-left: auto;
+    margin-right: auto;*/
     border-radius: 0px;
     background-color: tomato;
     border: 0;
     font-size: 18px;
     color: #FFFFFF;
-    margin-top:20px !important;
-    width: 195px;
+    margin-top: 20px !important;
+    /*width: 195px;*/
+    width:101.5%;
     height: 41px;
-    line-height:41px;
-    margin-bottom:20px;
+    line-height: 41px;
+    /*margin-bottom:20px;*/
+    position: fixed;
+    bottom: 0px;
+    left: -5px;
 }
 
 #save:hover {
